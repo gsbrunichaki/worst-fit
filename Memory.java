@@ -9,9 +9,9 @@ public class Memory {
     ArrayList<Partition> block;
     ArrayList<Partition> free;
 
-    public Memory(int begin, int end) {
-        this.begin = begin;
-        this.end = end;
+    public Memory(String begin, String end) {
+        this.begin = Integer.parseInt(begin);
+        this.end = Integer.parseInt(end);
     }
 
     public ArrayList<Partition> getBlock() {

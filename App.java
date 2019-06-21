@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * App
@@ -15,23 +16,21 @@ public class App {
             readFile.readLine();
 
             Memory memory = new Memory(readFile.readLine(), readFile.readLine());
-
             Manager manager = new Manager(memory);
 
             while (readFile.ready()) {
                 lineToRequest(manager, readFile.readLine());
             }
 
-            manager.receiveRequest(new Request("S", "250"));
-            manager.receiveRequest(new Request("S", "100"));
-            manager.receiveRequest(new Request("S", "200"));
-            manager.receiveRequest(new Request("S", "400"));
-
-            manager.test();
-
             textFile.close();
         } catch (IOException e) {
             System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
         }
+    }
+
+    public static void lineToRequest(Manager manager, String line) {
+        String s[] = line.split(" ");
+
+        manager.addRequest(new Request(s[0], s[1]));
     }
 }

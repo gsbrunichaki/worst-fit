@@ -19,7 +19,7 @@ public class Partition {
     }
 
     public int getStart() {
-        return start;
+        return this.start;
     }
 
     public void setStart(int start) {
@@ -27,7 +27,7 @@ public class Partition {
     }
 
     public int getEnd() {
-        return end;
+        return this.end;
     }
 
     public void setEnd(int end) {
@@ -35,7 +35,7 @@ public class Partition {
     }
 
     public boolean isOccupied() {
-        return occupied;
+        return this.occupied;
     }
 
     public void setOccupied(boolean occupied) {

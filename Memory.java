@@ -1,0 +1,7 @@
+/**
+ * Memory
+ */
+public class Memory {
+    
+    
+}

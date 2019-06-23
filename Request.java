@@ -16,6 +16,11 @@ public class Request {
 
     public int getValue() {
         return value;
-    }   
-    
+    }
+
+    @Override
+    public String toString() {
+        return "Request [command=" + command + ", value=" + value + "]";
+    }
+
 }

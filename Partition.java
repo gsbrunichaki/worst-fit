@@ -34,6 +34,7 @@ public class Partition implements Comparable<Partition> {
 
     public void setEnd(int end) {
         this.end = end;
+        this.size = this.end - this.start;
     }
 
     public int getSize() {
@@ -65,6 +66,6 @@ public class Partition implements Comparable<Partition> {
 
     @Override
     public String toString() {
-        return "Partition [end=" + end + ", id=" + id + ", occupied=" + occupied + ", start=" + start + "]";
+        return "\n" + this.occupied + " " + this.start + " - " + this.end + " bloco " + this.id + " (tamanho " + this.size + ")";
     }
 }

@@ -22,7 +22,13 @@ public class App {
                 lineToRequest(manager, readFile.readLine());
             }
 
+            manager.allocate(250);
+            manager.allocate(100);
+            manager.allocate(100);
+
             textFile.close();
+
+            // manager.run();
         } catch (IOException e) {
             System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
         }

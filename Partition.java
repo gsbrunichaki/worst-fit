@@ -1,11 +1,16 @@
 /**
- * Partition
- */
+    Representa uma partição variável dentro do bloco de memória disponível. 
+ 
+    Autores: Gabriel Brunichaki, Paulo Aranha
+    Data: 21.06.2019
+ **/
+
 public class Partition implements Comparable<Partition> {
     int id;
     int start;
     int end;
     int size;
+    int idArea;
     boolean occupied;
 
     public Partition(int id, int start, int end) {
@@ -13,11 +18,16 @@ public class Partition implements Comparable<Partition> {
         this.start = start;
         this.end = end;
         this.size = end - start;
+        this.idArea = 0;
         this.occupied = false;
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getStart() {
@@ -26,6 +36,7 @@ public class Partition implements Comparable<Partition> {
 
     public void setStart(int start) {
         this.start = start;
+        this.size = this.end - this.start;
     }
 
     public int getEnd() {
@@ -41,8 +52,12 @@ public class Partition implements Comparable<Partition> {
         return size;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public int getIdArea() {
+        return this.idArea;
+    }
+
+    public void setIdArea(int idArea) {
+        this.idArea = idArea;
     }
 
     public boolean isOccupied() {
@@ -66,6 +81,8 @@ public class Partition implements Comparable<Partition> {
 
     @Override
     public String toString() {
-        return "\n" + this.occupied + " " + this.start + " - " + this.end + " bloco " + this.id + " (tamanho " + this.size + ")";
+        String name = "livre";
+        if (this.idArea > 0) { name = "bloco " + this.idArea; }
+        return "\n" + this.start + " - " + this.end + " " + name + " (tamanho " + this.size + ")";
     }
 }

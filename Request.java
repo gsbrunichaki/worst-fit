@@ -1,6 +1,10 @@
 /**
- * Request
- */
+    Responsável especificamente por representar as requisições recebidas pelo gerenciador.
+
+    Autores: Gabriel Brunichaki, Paulo Aranha
+    Data: 21.06.2019
+ **/
+
 public class Request {
     private char command;
     private int value;

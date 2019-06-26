@@ -1,12 +1,17 @@
+/**
+    Simula a memória principal que é gerenciada pelo Manager.
+ 
+    Autores: Gabriel Brunichaki, Paulo Aranha
+    Data: 21.06.2019
+ **/
+
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * Memory
- */
 public class Memory {
     int begin;
     int end;
+    int lastIdArea;
     ArrayList<Partition> block;
     ArrayList<Partition> free;
 
@@ -16,11 +21,20 @@ public class Memory {
 
         this.begin = Integer.parseInt(begin);
         this.end = Integer.parseInt(end);
+        this.lastIdArea = 0;
 
         Partition firstPartition = new Partition(1, this.begin, this.end);
 
-        this.free.add(firstPartition);
         this.block.add(firstPartition);
+        this.free.add(firstPartition);
+    }
+
+    public int getLastIdArea() {
+        return this.lastIdArea;
+    }
+
+    public int newIdArea() {
+        return ++this.lastIdArea;
     }
 
     public ArrayList<Partition> getBlock() {
@@ -55,6 +69,13 @@ public class Memory {
         return partition;
     }
 
-    
-    
+    public int sumFree() {
+        int sum = 0;
+
+        for (int i = 0; i < this.free.size(); i++) {
+            sum += this.free.get(i).getSize();
+        }
+
+        return sum;
+    }    
 }

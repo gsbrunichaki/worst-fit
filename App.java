@@ -1,15 +1,21 @@
+/**
+    inicializa a aplicação. Além disso, é responsável por instanciar os objetos "Memória"e "Gerenciador"
+    e fazer a leitura do arquivo de texto, adicionando os comandos de alocação e liberação na lista de
+    solicitações do gerenciador.
+
+    Autores: Gabriel Brunichaki, Paulo Aranha
+    Data: 21.06.2019
+ **/
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-/**
- * App
- */
 public class App {
 
     public static void main(String[] args) {
         try {
-            FileReader textFile = new FileReader("test1.txt");
+            FileReader textFile = new FileReader("test2.txt");
             BufferedReader readFile = new BufferedReader(textFile);
 
             // Ignora a primeira linha
@@ -22,13 +28,9 @@ public class App {
                 lineToRequest(manager, readFile.readLine());
             }
 
-            manager.allocate(250);
-            manager.allocate(100);
-            manager.allocate(100);
-
             textFile.close();
 
-            // manager.run();
+            manager.run();
         } catch (IOException e) {
             System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
         }
